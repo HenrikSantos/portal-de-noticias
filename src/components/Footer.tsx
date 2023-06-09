@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer>
-      <h1>Henrik Ruan Santos de Souza - 2023</h1>
+    <footer className='fixed bottom-0 w-full'>
+      <h1 className='text-center '>Henrik Ruan Santos de Souza - 2023</h1>
     </footer>
   )
 }
