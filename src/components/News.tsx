@@ -1,18 +1,32 @@
 'use client'
 
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import IArticles from '@/interfaces/IArticles'
 import Image from 'next/image'
-import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import MyContext from '@/context/MyContext';
 
 interface INewsProp {
   article: IArticles
 }
 
+
 export default function News({article}: INewsProp) {
+  const {setCurrentArticle} = useContext(MyContext)
+  const [redirection, setRedirection] = useState(false);
+
+  function handleClick () {
+    localStorage.setItem('article', JSON.stringify(article));
+    setCurrentArticle({...article});
+    setRedirection(true);
+  }
+
+  if(redirection) redirect(`/details/${article.title.replace(/\s+/g, '-').toLowerCase()}`);
+
+
   return (
-    <Link
-      href={`details/${article.title.replace(/\s+/g, '-').toLowerCase()}`}
+    <div
+      onClick={() => handleClick()}
       className='md:w-[27rem] bg-gray-900 p-3 text-left items-start'
     >
       {
@@ -36,6 +50,6 @@ export default function News({article}: INewsProp) {
           <p>Data:{article.publishedAt}</p>
         )
       }
-    </Link>
+    </div>
   )
 }
