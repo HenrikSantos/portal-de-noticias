@@ -3,14 +3,15 @@
 Desafio técnico para o projeto voluntário [Tech do Bem](https://www.linkedin.com/company/techprobem/).
 
 ## Iniciando o Projeto
-
-Primeiro, inicie o server de desenvolvimento:
+- Renomeie o arquivo .env.example para .env.local;
+- Dentro do arquivo .env.local altere o campo com a sua KEY da API [newsapi.org](https://newsapi.org/);
+- Inicie o server de desenvolvimento:
 
 ```bash
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
+- Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
 
 # EN
 
@@ -18,10 +19,13 @@ Technical challenge for the volunteer project [Tech do Bem](https://www.linkedin
 
 ## Getting Started
 
-First, run the development server:
+
+- Rename the file .env.example to .env.local;
+- Inside the .env.local file, change the field with your API KEY from [newsapi.org](https://newsapi.org/);
+- Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
