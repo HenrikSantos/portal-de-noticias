@@ -1,6 +1,9 @@
+'use client'
+
 import React from 'react'
 import IArticles from '@/interfaces/IArticles'
 import Image from 'next/image'
+import Link from 'next/link';
 
 interface INewsProp {
   article: IArticles
@@ -8,28 +11,31 @@ interface INewsProp {
 
 export default function News({article}: INewsProp) {
   return (
-    <div>
+    <Link
+      href={`details/${article.title.replace(/\s+/g, '-').toLowerCase()}`}
+      className='md:w-[27rem] bg-gray-900 p-3 text-left items-start'
+    >
       {
         article.urlToImage && (
-          <Image src={article.urlToImage} alt='Imagem da noticia' width={100}  height={100}/>
+          <Image className='float-left mr-3' src={article.urlToImage} alt='Imagem da noticia' width={150}  height={150}/>
         )
       }
-      <h1>{article.title}</h1>
+      <h1 className='text-xl font-bold'>{article.title}</h1>
       {
         article.description && (
-          <p>{article.description}</p>
+          <p className=''>- {article.description}</p>
         )
       }
       {
         article.author && (
-          <p>{article.author}</p>
+          <p className='underline'>- {article.author}</p>
         )
       }
       {
         article.publishedAt && (
-          <p>{article.publishedAt}</p>
+          <p>Data:{article.publishedAt}</p>
         )
       }
-    </div>
+    </Link>
   )
 }
