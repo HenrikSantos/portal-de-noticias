@@ -1,6 +1,6 @@
 # PT-BR
 
-Desafio técnico para o projeto voluntário [Tech do Bem](https://www.linkedin.com/company/techprobem/).
+Desafio técnico para o projeto voluntário [Tech pro Bem](https://www.linkedin.com/company/techprobem/).
 
 ## Iniciando o Projeto
 - Renomeie o arquivo .env.example para .env.local;
@@ -15,7 +15,7 @@ npm run dev
 
 # EN
 
-Technical challenge for the volunteer project [Tech do Bem](https://www.linkedin.com/company/techprobem/).
+Technical challenge for the volunteer project [Tech pro Bem](https://www.linkedin.com/company/techprobem/).
 
 ## Getting Started
 

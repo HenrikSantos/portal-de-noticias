@@ -1,7 +1,17 @@
+"use client"
+
+import MyContext from '@/context/MyContext';
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 
 export default function Header() {
+	const {setQuery} = useContext(MyContext)
+
+	function changeTheme(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		const value = event.currentTarget.value;
+		setQuery(value);
+	}
+
 	return (
 		<header className='sticky top-0 bg-zinc-950'>
 			<div className='mx-auto flex w-10/12 items-baseline justify-between py-4'>
@@ -11,10 +21,26 @@ export default function Header() {
 					</h1>
 				</Link>
 				<ul className='hidden gap-x-5 text-xl md:flex'>
-					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'><Link href="/Tecnologia">Tecnologia</Link></li>
-					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'><Link href="/Internacional">Internacional</Link></li>
-					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'><Link href="/Economia">Economia</Link></li>
-					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'><Link href="/Justiça">Justiça</Link></li>
+					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'>
+						<button value={"Tecnologia"} onClick={changeTheme}>
+							Tecnologia
+						</button>
+					</li>
+					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'>
+						<button value={"Internacional"} onClick={changeTheme}>
+							Internacional
+						</button>
+					</li>
+					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'>
+						<button value={"Economia"} onClick={changeTheme}>
+							Economia
+						</button>
+					</li>
+					<li className='rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900'>
+						<button value={"Justiça"} onClick={changeTheme}>
+							Justiça
+						</button>
+					</li>
 				</ul>
 			</div>
 		</header>

@@ -34,7 +34,7 @@ export default function News({ article }: INewsProp) {
 			<div className='my-3 border-s-2 px-3'>
 				<h1 className='text-xl font-bold'>{article.title}</h1>
 				<p className=''>- {article.description}</p>
-				<p className='text-purple-500'>Data: {article.publishedAt.slice(0, 10)}</p>
+				<p>Data: <span className='text-purple-500'>{article.publishedAt.slice(0, 10).split('-').reverse().join('/')}</span></p>
 				<p>- Autor: <span className='underline'>{article.author}</span></p>
 			</div>
 		</div>

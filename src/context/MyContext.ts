@@ -27,9 +27,9 @@ export const defaultValues: IMyContext = {
 		publishedAt: "",
 		content: "",
 	},
-	setCurrentArticle: () => "not Implemented",
+	setCurrentArticle: () => {},
 	query: "",
-	setQuery: () => "not Implemented",
+	setQuery: () => {},
 };
 
 const MyContext = createContext<IMyContext>(defaultValues);

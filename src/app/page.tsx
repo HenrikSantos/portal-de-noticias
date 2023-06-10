@@ -6,16 +6,12 @@ import News from "@/components/News";
 import MyContext from "@/context/MyContext";
 import { IArticles } from "@/interfaces/IArticles";
 import { useEffect, useState, useContext } from "react";
-
-async function getNews(query = "a") {
-	return await (await fetch(`
-		https://newsapi.org/v2/everything?q=${query ? query : "a"}&language=pt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
-	)).json();
-}
+import getNews from '../services/getNews';
 
 export default function Home() {
 	const [data, setData] = useState({ articles: [] });
 	const { query, setQuery } = useContext(MyContext);
+
 	useEffect(() => {
 		async function fetchData() {
 			const { articles } = await getNews(query);
