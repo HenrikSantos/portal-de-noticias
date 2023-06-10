@@ -1,7 +1,7 @@
-import articles from './IArticles'
+import { IArticles } from "./IArticles";
 
 export default interface INews {
-  status: string,
-  totalResults: number,
-  articles: articles[]
+  status: string;
+  totalResults: number;
+  articles: IArticles[];
 }

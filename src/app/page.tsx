@@ -1,27 +1,42 @@
-import IArticles from '@/interfaces/IArticles';
-import News from '@/components/News';
-import INews from '@/interfaces/INews';
+'use client'
 
-async function getNews(query = '') {
-  return await(await fetch(`https://newsapi.org/v2/everything?q=${query}a&language=pt&apiKey=${process.env.API_KEY}`)).json()
+import 'dotenv/config'
+
+import News from "@/components/News";
+import MyContext from '@/context/MyContext';
+import { IArticles } from "@/interfaces/IArticles";
+import { useEffect, useState, useContext } from 'react';
+
+async function getNews(query = 'a') {
+	return await (await fetch(`
+		https://newsapi.org/v2/everything?q=${query ? query : 'a'}&language=pt&apiKey=${process.env.NEXT_PUBLIC_API_KEY}`
+	)).json();
 }
 
-export default async function Home() {
-  const data: INews = await getNews();
-  
-  return (
-    <main className='
-      flex flex-col
-      p-10 mx-auto justify-between gap-10
-      md:flex-row md:flex-wrap md:w-8/12 md:gap-3 md:p-0
-    '>
-      {
-        data?.articles && (
-          data.articles.map((article: IArticles) => (
-            <News article={article} key={article.source.id || article.title} />
-          ))
-          )
-      }
-    </main>
-  )
+export default function Home() {
+	const [data, setData] = useState({ articles: [] });
+	const { query, setQuery } = useContext(MyContext)
+	useEffect(() => {
+		async function fetchData() {
+			const { articles } = await getNews(query);
+			setData({ articles });
+		}
+
+		fetchData();
+	}, [query])
+
+	function handleChanges({ target: { value } }: { target: { value: string } }) {
+		setQuery(value);
+	}
+
+	return (
+		<main className='mx-auto mt-4 flex flex-col items-start justify-between gap-10 px-10 md:w-8/12 md:flex-row md:flex-wrap md:gap-3 md:p-0'>
+			<input className='text-black w-full p-2 rounded' placeholder='Pesquise um termo' onChange={(e) => handleChanges(e)} value={query} type="text" name="pesquisa" id="find" />
+			{
+				data.articles && (data.articles.map((article: IArticles, index) => (
+					<News article={article} key={article.source.id + article.title + index} />
+				)))
+			}
+		</main>
+	);
 }
