@@ -19,7 +19,7 @@ export default function MyProvider({ children }: IMyProviderProps) {
 		content: "",
 	});
 
-	const [query, setQuery] = useState('');
+	const [query, setQuery] = useState("");
 
 	const ContextValue = useMemo(() => ({
 		currentArticle,

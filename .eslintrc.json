@@ -4,7 +4,8 @@
     "next/core-web-vitals",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:tailwindcss/recommended"
+		"plugin:tailwindcss/recommended",
+		"next"
 	],
 	"overrides": [
 		{
@@ -34,8 +35,9 @@
 			"double"
 		],
 		"semi": [
-			"error",
+			"warn",
 			"always"
-		]
+		],
+		"@typescript-eslint/no-extra-semi": "off"
 	}
 }

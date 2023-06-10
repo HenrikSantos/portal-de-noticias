@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { IArticles } from "@/interfaces/IArticles";
 import { useRouter } from "next/navigation";
 import MyContext from "@/context/MyContext";
@@ -18,7 +18,7 @@ export default function News({ article }: INewsProp) {
 	function handleClick() {
 		localStorage.setItem("article", JSON.stringify(article));
 		setCurrentArticle({ ...article });
-		router.push(`/details/${article.title.replace(/\s+/g, "-").toLowerCase()}`)
+		router.push(`/details/${article.title.replace(/\s+/g, "-").toLowerCase()}`);
 	}
 
 	return (
@@ -28,7 +28,7 @@ export default function News({ article }: INewsProp) {
 		>
 			{
 				article.urlToImage && (
-					<img className='h-2/6 w-full object-cover object-center rounded shadow-inner' src={article.urlToImage} alt='Imagem da noticia' />
+					<img className='h-2/6 w-full rounded object-cover object-center shadow-inner' src={article.urlToImage} alt='Imagem da noticia' />
 				)
 			}
 			<div className='my-3 border-s-2 px-3'>

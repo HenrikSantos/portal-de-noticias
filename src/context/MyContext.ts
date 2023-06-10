@@ -17,19 +17,19 @@ export interface IMyContext {
 }
 
 export const defaultValues: IMyContext = {
-  currentArticle: {
-    source: "",
-    author: "",
-    title: "",
-    description: "",
-    url: "",
-    urlToImage: "",
-    publishedAt: "",
-    content: "",
-  },
-  setCurrentArticle: () => {},
-  query: "",
-  setQuery: () => {},
+	currentArticle: {
+		source: "",
+		author: "",
+		title: "",
+		description: "",
+		url: "",
+		urlToImage: "",
+		publishedAt: "",
+		content: "",
+	},
+	setCurrentArticle: () => "not Implemented",
+	query: "",
+	setQuery: () => "not Implemented",
 };
 
 const MyContext = createContext<IMyContext>(defaultValues);

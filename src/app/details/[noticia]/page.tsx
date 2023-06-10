@@ -4,7 +4,9 @@ import MyContext from "@/context/MyContext";
 import Image from "next/image";
 import React, { useContext, useEffect } from "react";
 
-export default function page() {
+
+
+export default function Page() {
 	const {
 		currentArticle: {
 			author,
@@ -14,9 +16,13 @@ export default function page() {
 			urlToImage
 		}, setCurrentArticle } = useContext(MyContext);
 
-	useEffect(() => {
+	function loadArticle() {
 		const savedArticle = JSON.parse(localStorage.getItem("article") || "");
 		if (savedArticle) setCurrentArticle({ ...savedArticle });
+	}
+
+	useEffect(() => {
+		loadArticle();
 	}, []);
 
 	return (
