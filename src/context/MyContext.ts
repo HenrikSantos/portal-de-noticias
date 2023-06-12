@@ -1,3 +1,4 @@
+import { INews } from "@/interfaces/INews";
 import { createContext, Dispatch, SetStateAction } from "react";
 
 export interface IMyContext {
@@ -12,8 +13,8 @@ export interface IMyContext {
     content: string;
   };
   setCurrentArticle: Dispatch<SetStateAction<object>>;
-  query: string;
-  setQuery: Dispatch<SetStateAction<string>>;
+  data: INews,
+	setNewsData: Dispatch<SetStateAction<object>>,
 }
 
 export const defaultValues: IMyContext = {
@@ -28,8 +29,10 @@ export const defaultValues: IMyContext = {
 		content: "",
 	},
 	setCurrentArticle: () => "not implemented",
-	query: "",
-	setQuery: () => "not implemented",
+	data: {
+		status: "", totalResults: 0, articles: []
+	},
+	setNewsData: () => "not implemented",
 };
 
 const MyContext = createContext<IMyContext>(defaultValues);

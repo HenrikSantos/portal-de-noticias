@@ -19,14 +19,14 @@ export default function MyProvider({ children }: IMyProviderProps) {
 		content: "",
 	});
 
-	const [query, setQuery] = useState("");
+	const [data, setNewsData] = useState({status: "", totalResults: 0, articles: []});
 
 	const ContextValue = useMemo(() => ({
 		currentArticle,
 		setCurrentArticle: setCurrentArticle as React.Dispatch<React.SetStateAction<object>>,
-		query,
-		setQuery,
-	}), [currentArticle, setCurrentArticle, query, setQuery]);
+		data,
+		setNewsData: setNewsData as React.Dispatch<React.SetStateAction<object>>,
+	}), [currentArticle, setCurrentArticle, data, setNewsData]);
 
 	return (
 		<MyContext.Provider value={ContextValue}>

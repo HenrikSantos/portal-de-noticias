@@ -5,12 +5,19 @@ import Link from "next/link";
 import React, { useContext } from "react";
 
 export default function Header() {
-	const {setQuery} = useContext(MyContext);
+	const {setNewsData} = useContext(MyContext);
 
-	function changeTheme(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-		const value = event.currentTarget.value;
-		setQuery(value);
-	}
+	async function changeTheme(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		const { value } = event.currentTarget;
+		try {
+			const url = `http://localhost:3000/api/?q=${encodeURIComponent(value)}&`;
+			const response = await fetch(url);
+			const data = await response.json();
+			setNewsData(data);
+		} catch (error) {
+			alert(error);
+		}
+	};
 
 	return (
 		<header className='sticky top-0 bg-zinc-950'>
