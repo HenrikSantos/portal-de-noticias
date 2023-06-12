@@ -23,21 +23,21 @@ export default function Page() {
 	}, []);
 
 	return (
-		<section className='
-    mx-auto
-    space-y-3
-    md:w-8/12 md:p-0'>
-			<h1 className='text-3xl font-extrabold'>{title}</h1>
+		<section className="
+			mx-auto
+			space-y-3
+			md:w-8/12 md:p-0">
+			<h1 className="text-3xl font-extrabold">{title}</h1>
 			<p>{description}</p>
 			{urlToImage && (
 				<img
-					className='w-full rounded border border-white/50 bg-auto bg-center bg-no-repeat'
+					className="w-full rounded border border-white/50 bg-auto bg-center bg-no-repeat"
 					src={urlToImage}
-					alt='Imagem da noticia'
+					alt="Imagem da noticia"
 				/>
 			)}
 			<p>Data: {new Date(publishedAt).toLocaleDateString()}</p>
-			<p>Autor: <span className='underline'>{author}</span></p>
+			<p>Autor: <span className="underline">{author}</span></p>
 		</section>
 	);
 }
