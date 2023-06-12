@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import MyContext from '@/context/MyContext';
+import MyContext from "@/context/MyContext";
 import Link from "next/link";
 import React, { useContext } from "react";
 
 export default function Header() {
-	const {setQuery} = useContext(MyContext)
+	const {setQuery} = useContext(MyContext);
 
 	function changeTheme(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		const value = event.currentTarget.value;

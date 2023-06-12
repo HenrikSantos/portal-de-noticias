@@ -1,6 +1,6 @@
 import { IArticles } from "./IArticles";
 
-export default interface INews {
+export interface INews {
   status: string;
   totalResults: number;
   articles: IArticles[];
