@@ -20,7 +20,10 @@ export default function Filter() {
 				url += `language=${encodeURIComponent(filters.language)}&`;
 			}
 			if (filters.date) {
-				url += `date=${encodeURIComponent(filters.date)}`;
+				url += `date=${encodeURIComponent(filters.date)}&`;
+			}
+			if (filters.sortBy) {
+				url += `sortBy=${encodeURIComponent(filters.sortBy)}`;
 			}
 			const response = await fetch(url);
 			const data = await response.json();
@@ -46,6 +49,7 @@ export default function Filter() {
 			title: "",
 			language: "pt",
 			date: "",
+			sortBy: "publishedAt",
 		});
 	}
 
@@ -83,6 +87,17 @@ export default function Filter() {
 				<option value="ru">Russo</option>
 				<option value="sv">Sueco</option>
 				<option value="zh">Chinês</option>
+			</select>
+
+			<select
+				value={filters.sortBy}
+				name="sortBy"
+				onChange={handleFilterChange}
+				title="sortBy"
+				className="basis-auto rounded p-2 text-black">
+				<option value="relevancy">Relevância</option>
+				<option value="popularity">Popularidade</option>
+				<option value="publishedAt">Mais recente</option>
 			</select>
 
 			<input

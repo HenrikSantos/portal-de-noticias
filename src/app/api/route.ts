@@ -8,17 +8,24 @@ export async function GET(request: Request) {
 	const title = params.get("q");
 	const language = params.get("language");
 	const date = params.get("date");
+	const sortBy = params.get("sortBy");
 	
 	let url = "https://newsapi.org/v2/everything?";
 	
 	if (title) {
 		url += `q=${encodeURIComponent(title)}&`;
 	}
+
 	if (language) {
 		url += `language=${encodeURIComponent(language)}&`;
 	}
+
 	if (date) {
 		url += `from=${encodeURIComponent(date)}&to=${encodeURIComponent(date)}&`;
+	}
+
+	if (sortBy) {
+		url += `sortBy=${encodeURIComponent(sortBy)}&`;
 	}
 
 	url += `apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;

@@ -11,6 +11,7 @@ export interface IMyContext {
 		title: string,
 		language: string,
 		date: string,
+		sortBy: string,
 	}, 
 	setFilters: Dispatch<SetStateAction<object>>,
 }
@@ -38,6 +39,7 @@ export const defaultValues: IMyContext = {
 		title: "",
 		language: "pt",
 		date: "",
+		sortBy: "",
 	},
 	setFilters: () => "not implemented",
 };

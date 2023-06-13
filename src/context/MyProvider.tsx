@@ -25,7 +25,8 @@ export default function MyProvider({ children }: IMyProviderProps) {
 	const [ filters, setFilters ] = useState({
 		title: "",
 		language: "pt",
-		date: ""
+		date: "",
+		sortBy: "publishedAt",
 	});
 
 	const [ data, setNewsData ] = useState({ status: "", totalResults: 0, articles: [] });
