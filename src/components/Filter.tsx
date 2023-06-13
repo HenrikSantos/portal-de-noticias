@@ -12,7 +12,7 @@ export default function Filter() {
 
 	async function handleFormSubmit () {
 		try {
-			let url = "http://localhost:3000/api/?";
+			let url = `${window.location.origin}/api/?`;
 			if (filters.title) {
 				url += `q=${encodeURIComponent(filters.title)}&`;
 			} else url += "&q=a&";

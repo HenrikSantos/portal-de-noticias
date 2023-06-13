@@ -10,7 +10,7 @@ export default function Header() {
 	async function changeTheme(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		const { value } = event.currentTarget;
 		try {
-			const url = `http://localhost:3000/api/?q=${encodeURIComponent(value)}&`;
+			const url = `${window.location.origin}/api/?q=${encodeURIComponent(value)}&`;
 			const response = await fetch(url);
 			const data = await response.json();
 			setNewsData(data);
