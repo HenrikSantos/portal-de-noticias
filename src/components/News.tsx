@@ -24,7 +24,7 @@ export default function News({ article }: INewsProp) {
 	return (
 		<div
 			onClick={() => handleClick()}
-			className="items-start rounded text-left shadow-md hover:cursor-pointer md:w-[27rem] "
+			className="items-start rounded text-left shadow-md hover:cursor-pointer md:w-96"
 		>
 			{
 				article.urlToImage && (
