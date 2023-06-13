@@ -3,6 +3,10 @@
 Desafio técnico para o projeto voluntário [Tech pro Bem](https://www.linkedin.com/company/techprobem/).
 
 ## Iniciando o Projeto
+- Instale as dependências:
+```bash
+npm install
+```
 - Renomeie o arquivo .env.example para .env.local;
 - Dentro do arquivo .env.local altere o campo com a sua KEY da API [newsapi.org](https://newsapi.org/);
 - Inicie o server de desenvolvimento:
@@ -23,6 +27,10 @@ Technical challenge for the volunteer project [Tech pro Bem](https://www.linkedi
 
 ## Getting Started
 
+- Install dependencies
+```bash
+npm install
+```
 
 - Rename the file .env.example to .env.local;
 - Inside the .env.local file, change the field with your API KEY from [newsapi.org](https://newsapi.org/);
