@@ -1,15 +1,10 @@
 "use client";
 
-import { useEffect, useState, ChangeEvent, useContext } from "react";
+import { useEffect, ChangeEvent, useContext } from "react";
 import MyContext from "@/context/MyContext";
 
 export default function Filter() {
-	const { setNewsData } = useContext(MyContext);
-	const [ filters, setFilters] = useState({
-		title: "",
-		language: "pt",
-		date: ""
-	});
+	const { setNewsData, filters, setFilters } = useContext(MyContext);
 
 	useEffect(() => {
 		handleFormSubmit();
@@ -35,9 +30,9 @@ export default function Filter() {
 		}
 	};
 
-	const handleFilterChange = (
+	function handleFilterChange(
 		event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
-	) => {
+	) {
 		const { name, value } = event.target;
 		
 		setFilters((prevFormData) => ({
@@ -46,14 +41,21 @@ export default function Filter() {
 		}));
 	};
   
+	function clear() {
+		setFilters({
+			title: "",
+			language: "pt",
+			date: "",
+		});
+	}
 
 	return (
 		<form className="
-			flex flex-col mx-10 sticky top-14 bg-black py-5 gap-3
-			md:flex-row md:mx-0
+			mx-10 flex flex-col gap-3 bg-black py-5
+			md:sticky md:top-14 md:mx-0 md:flex-row
 		">
 			<input
-				className="rounded p-2 text-black basis-full"
+				className="basis-full rounded p-2 text-black"
 				type="text"
 				name="title"
 				placeholder="Título"
@@ -66,7 +68,7 @@ export default function Filter() {
 				name="language"
 				onChange={handleFilterChange}
 				title="language"
-				className="rounded p-2 text-black basis-auto">
+				className="basis-auto rounded p-2 text-black">
 				<option value="">Todos</option>
 				<option value="ar">Árabe</option>
 				<option value="de">Alemão</option>
@@ -84,14 +86,15 @@ export default function Filter() {
 			</select>
 
 			<input
-				className="rounded p-2 text-black basis-auto"
+				className="basis-auto rounded p-2 text-black"
 				type="date"
 				name="date"
 				value={filters.date}
 				onChange={handleFilterChange}
 			/>
 
-			<button className="rounded bg-white p-2 text-black hover:bg-slate-200 basis-auto" onClick={() => handleFormSubmit()} type="button">Filtrar</button>
+			<button className="basis-auto rounded bg-white p-2 text-black hover:bg-slate-200" onClick={() => handleFormSubmit()} type="button">Filtrar</button>
+			<button className="basis-auto rounded bg-white p-2 text-black hover:bg-slate-200" onClick={clear} type="button">Limpar</button>
 		</form>
 	);
 }

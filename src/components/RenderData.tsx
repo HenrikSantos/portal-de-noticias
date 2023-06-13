@@ -7,7 +7,7 @@ import MyContext from "@/context/MyContext";
 
 export default function RenderData() {
   
-	const {data} = useContext(MyContext);
+	const { data } = useContext(MyContext);
 	return (
 		<section className="
 			mx-auto flex flex-col items-start justify-between gap-y-10 px-10

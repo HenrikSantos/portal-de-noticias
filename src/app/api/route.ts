@@ -9,8 +9,6 @@ export async function GET(request: Request) {
 	const language = params.get("language");
 	const date = params.get("date");
 	
-	
-	
 	let url = "https://newsapi.org/v2/everything?";
 	
 	if (title) {
@@ -22,8 +20,6 @@ export async function GET(request: Request) {
 	if (date) {
 		url += `from=${encodeURIComponent(date)}&to=${encodeURIComponent(date)}&`;
 	}
-
-	console.log(url);
 
 	url += `apiKey=${process.env.NEXT_PUBLIC_API_KEY}`;
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useContext } from "react";
 
 export default function Header() {
-	const {setNewsData} = useContext(MyContext);
+	const { setNewsData } = useContext(MyContext);
 
 	async function changeTheme(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		const { value } = event.currentTarget;
@@ -34,8 +34,8 @@ export default function Header() {
 						</button>
 					</li>
 					<li className="rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900">
-						<button value={"Internacional"} onClick={changeTheme}>
-							Internacional
+						<button value={"Mundo"} onClick={changeTheme}>
+							Mundo
 						</button>
 					</li>
 					<li className="rounded px-2 py-1 hover:cursor-pointer hover:bg-slate-900">

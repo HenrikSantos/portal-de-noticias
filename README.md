@@ -13,6 +13,10 @@ npm run dev
 
 - Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
 
+## Observações
+- Optei por não utilizar o "Image" do "next/image" pois algumas imagens retornadas pela newsapi usam o protocolo http e não https, além disso, seria necessário permitir todos os domínios das imagens ou adicioná-los manualmente.
+- No ReadMe do projeto dizia ser necessário colocar o "Texto da notícia" dentro da página de detalhes da notícia, infelizmente o retorno da API limita o "Texto da notícia" em 200 caracteres, logo optei por reutilizar o campo "description".
+
 # EN
 
 Technical challenge for the volunteer project [Tech pro Bem](https://www.linkedin.com/company/techprobem/).

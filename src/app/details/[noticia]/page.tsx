@@ -29,13 +29,15 @@ export default function Page() {
 			md:w-8/12 md:p-0">
 			<h1 className="text-3xl font-extrabold">{title}</h1>
 			<p>{description}</p>
-			{urlToImage && (
-				<img
-					className="w-full rounded border border-white/50 bg-auto bg-center bg-no-repeat"
-					src={urlToImage}
-					alt="Imagem da noticia"
-				/>
-			)}
+			{
+				urlToImage && (
+					<img
+						className="w-full rounded border border-white/50 bg-auto bg-center bg-no-repeat"
+						src={urlToImage}
+						alt="Imagem da noticia"
+					/>
+				)
+			}
 			<p>Data: {new Date(publishedAt).toLocaleDateString()}</p>
 			<p>Autor: <span className="underline">{author}</span></p>
 		</section>

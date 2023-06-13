@@ -38,6 +38,8 @@
 			"warn",
 			"always"
 		],
-		"@typescript-eslint/no-extra-semi": "off"
+		"@typescript-eslint/no-extra-semi": "off",
+		"object-curly-spacing":["warn", "always"],
+		"array-bracket-spacing": ["warn", "always"]
 	}
 }

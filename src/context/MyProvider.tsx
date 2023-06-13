@@ -8,8 +8,11 @@ interface IMyProviderProps {
 
 export default function MyProvider({ children }: IMyProviderProps) {
 
-	const [currentArticle, setCurrentArticle] = useState({
-		source: "",
+	const [ currentArticle, setCurrentArticle ] = useState({
+		source: {
+			id: "",
+			name: "",
+		},
 		author: "",
 		title: "",
 		description: "",
@@ -19,14 +22,22 @@ export default function MyProvider({ children }: IMyProviderProps) {
 		content: "",
 	});
 
-	const [data, setNewsData] = useState({status: "", totalResults: 0, articles: []});
+	const [ filters, setFilters ] = useState({
+		title: "",
+		language: "pt",
+		date: ""
+	});
+
+	const [ data, setNewsData ] = useState({ status: "", totalResults: 0, articles: [] });
 
 	const ContextValue = useMemo(() => ({
 		currentArticle,
 		setCurrentArticle: setCurrentArticle as React.Dispatch<React.SetStateAction<object>>,
 		data,
 		setNewsData: setNewsData as React.Dispatch<React.SetStateAction<object>>,
-	}), [currentArticle, setCurrentArticle, data, setNewsData]);
+		filters,
+		setFilters: setFilters as React.Dispatch<React.SetStateAction<object>>,
+	}), [ currentArticle, setCurrentArticle, data, setNewsData, filters, setFilters ]);
 
 	return (
 		<MyContext.Provider value={ContextValue}>
